@@ -1,7 +1,11 @@
 briefs:
 
+  - date: 2025-05-26
+    title: Metalama 2025.1.8 released - critical bug fix
+    description: We've released Metalama 2025.1.8 with a critical bug fix and more minor improvements. See the [GitHub release](https://github.com/metalama/Metalama/releases/tag/release%2F2025.1.8).
+
   - date: 2025-05-22
-    title: Metalama 2025.1.7 released
+    title: Metalama 2025.1.7 released, merging Roslyn 4.15
     description: We've released Metalama 2025.1.7, with minor improvements and merge of Roslyn 4.14. See the [GitHub release](https://github.com/metalama/Metalama/releases/tag/release%2F2025.1.7).
 
   - date: 2025-05-15
