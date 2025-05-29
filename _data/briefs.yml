@@ -1,5 +1,9 @@
 briefs:
 
+  - date: 2025-05-29
+    title: Metalama 2025.1.9 released - critical VSX bug fix
+    description: We've released Metalama 2025.1.9 with a critical bug fix of Metalama + PostSharp Visual Studio Extension. See the [GitHub release](https://github.com/metalama/Metalama/releases/tag/release%2F2025.1.9).
+
   - date: 2025-05-26
     title: Metalama 2025.1.8 released - critical bug fix
     description: We've released Metalama 2025.1.8 with a critical bug fix and more minor improvements. See the [GitHub release](https://github.com/metalama/Metalama/releases/tag/release%2F2025.1.8).
