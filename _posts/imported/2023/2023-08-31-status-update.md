@@ -25,13 +25,13 @@ All packages have been uploaded to `nuget.org` and we recommend you also [downlo
 
 ### Code Contracts
 
-Our Code Contracts library is an [open-source](https://github.com/metalama/Metalama.Patterns/tree/release/2023.3/src/Metalama.Patterns.Contracts), aspect-oriented implementation of [System.ComponentModel.DataAnnotations](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations). Unlike Microsoft's annotations, Metalama's Code Contracts works with any C# code, not just ASP.NET MVC or Entity Framework, as it utilizes aspects to inject validation logic during compilation.
+Our Code Contracts library is an [open-source](https://github.com/metalama/Metalama.Patterns/tree/HEAD/src/Metalama.Patterns.Contracts), aspect-oriented implementation of [System.ComponentModel.DataAnnotations](https://learn.microsoft.com/en-us/dotnet/api/system.componentmodel.dataannotations). Unlike Microsoft's annotations, Metalama's Code Contracts works with any C# code, not just ASP.NET MVC or Entity Framework, as it utilizes aspects to inject validation logic during compilation.
 
 You can use a range of contracts like [Required](https://doc.metalama.net/api/metalama_patterns_contracts_requiredattribute), [EmailAddress](https://doc.metalama.net/api/metalama_patterns_contracts_emailaddressattribute), [StrictlyLessThan](https://doc.metalama.net/api/metalama_patterns_contracts_strictlylessthanattribute), and [many more](https://doc.metalama.net/api/metalama_patterns_contracts).
 
 If you're already using PostSharp code contracts, migration is straightforward with minimal code alterations, as we only changed the way exception messages and types are customized.
 
-In Metalama, customizing the type and text of exceptions thrown is as simple as overriding the [ContractTemplates](https://github.com/metalama/Metalama.Patterns/blob/release/2023.3/src/Metalama.Patterns.Contracts/ContractTemplates.cs) class and setting your implementation to `LoggingOptions.Templates`.
+In Metalama, customizing the type and text of exceptions thrown is as simple as overriding the [ContractTemplates](https://github.com/metalama/Metalama.Patterns/blob/HEAD/src/Metalama.Patterns.Contracts/ContractTemplates.cs) class and setting your implementation to `LoggingOptions.Templates`.
 
 For those who often have to verify public APIs for non-null arguments, we've simplified the process to one line of code per _project_:
 
@@ -43,7 +43,7 @@ This is a feature we're particularly proud of!
 
 ### Caching
 
-We've also ported our PostSharp-based caching framework to Metalama and completely [open-sourced](https://github.com/metalama/Metalama.Patterns/tree/release/2023.3/src/Metalama.Patterns.Caching) it. We updated the codebase to take full advantage of modern .NET and C#, including the use of `IReadOnlySpan<char>` to further reduce garbage collection load.
+We've also ported our PostSharp-based caching framework to Metalama and completely [open-sourced](https://github.com/metalama/Metalama.Patterns/tree/HEAD/src/Metalama.Patterns.Caching) it. We updated the codebase to take full advantage of modern .NET and C#, including the use of `IReadOnlySpan<char>` to further reduce garbage collection load.
 
 If you're unfamiliar with [PostSharp Caching](https://doc.postsharp.net/caching), it offers a robust set of features:
 
@@ -155,7 +155,7 @@ There are two approaches to invoking one template from another:
 
 The current limitation is that templates can only be invoked as a _statement_, not as an expression. In other words, you can't capture a return value from the invoked template.
 
-We're working on expanding our documentation to cover this new feature, which is extensively utilized in our code contracts library. For a hands-on example, you can start by examining [RegularExpressionBaseAttribute.cs](https://github.com/metalama/Metalama.Patterns/blob/release/2023.3/src/Metalama.Patterns.Contracts/RegularExpressionBaseAttribute.cs).
+We're working on expanding our documentation to cover this new feature, which is extensively utilized in our code contracts library. For a hands-on example, you can start by examining [RegularExpressionBaseAttribute.cs](https://github.com/metalama/Metalama.Patterns/blob/HEAD/src/Metalama.Patterns.Contracts/RegularExpressionBaseAttribute.cs).
 
 ### Enhanced Capabilities with Metalama.Framework.Sdk
 
@@ -171,7 +171,7 @@ When adding this package to your project, it's important to set all assets to pr
 
 For those interested in leveraging this feature, consult the [conceptual documentation](https://doc.metalama.net/conceptual/sdk). You may also find the following examples illuminating:
 
-* [INotifyPropertyChanged Dependency Graph](https://github.com/metalama/Metalama.Samples/tree/release/2023.3/examples/sdk): These examples demonstrate how to analyze the dependency graph of properties. For instance, they show how to detect when a change in the `FirstName` property necessitates updating the `FullName` property.
+* [INotifyPropertyChanged Dependency Graph](https://github.com/metalama/Metalama.Samples/tree/HEAD/examples/sdk): These examples demonstrate how to analyze the dependency graph of properties. For instance, they show how to detect when a change in the `FirstName` property necessitates updating the `FullName` property.
 
 * [Metalama.Extensions.Metrics](https://github.com/metalama/Metalama.Extensions/tree/develop/2023.3/src/Metalama.Extensions.Metrics): This example reveals how to define metrics, a powerful but currently underutilized feature, aimed at tasks like measuring lines of code (LOCs) or gauging complexity. However, it's worth noting that this is not yet usable from LinqPad.
 

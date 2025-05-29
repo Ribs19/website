@@ -16,7 +16,7 @@ There are three ways to generate proxy classes:
 
 ## Example
 
-Let's see how a proxy aspect could work in practice. This example is a slightly simplified version of [this sample aspect](https://github.com/metalama/Metalama.Samples/tree/release/2025.0/examples/Metalama.Samples.Proxy).
+Let's see how a proxy aspect could work in practice. This example is a slightly simplified version of [this sample aspect](https://github.com/metalama/Metalama.Samples/tree/HEAD/examples/Metalama.Samples.Proxy).
 
 Suppose we have an implementation class `OrderService` that we cannot modify, but we want to add logging to it.
 
@@ -132,4 +132,4 @@ public interface LoggingInterceptor : IInterceptor
 
 ## Resources
 
-* Source code: [Metalama.Samples.Proxy](https://github.com/metalama/Metalama.Samples/tree/release/2025.0/examples/Metalama.Samples.Proxy)
+* Source code: [Metalama.Samples.Proxy](https://github.com/metalama/Metalama.Samples/tree/HEAD/examples/Metalama.Samples.Proxy)

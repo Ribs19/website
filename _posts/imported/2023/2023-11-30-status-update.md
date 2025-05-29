@@ -45,7 +45,7 @@ For more details about this branch, see the changelogs:
 - [2024.0.2-preview](https://github.com/orgs/metalama/discussions/241)
 - [2024.0.1-preview](https://github.com/orgs/metalama/discussions/238)
 
-Real enthusiasts can also look at the list of [unpublished commits](https://github.com/metalama/Metalama.Framework/compare/release/2024.0...develop/2024.0).
+Real enthusiasts can also look at the list of [unpublished commits](https://github.com/metalama/Metalama.Framework/compare/HEAD...develop/2024.0).
 
 ## PostSharp 2024.0 Preview
 
@@ -67,7 +67,7 @@ We will also dedicate several weeks to performance optimizations of Metalama.
 
 Another lower-priority objective is to complete several user stories around advising constructors.
 
-We're also considering finishing the work with the [observability](https://github.com/metalama/Metalama.Patterns/tree/release/2024.0/src/Metalama.Patterns.Observability) and [XAML](https://github.com/metalama/Metalama.Patterns/tree/release/2024.0/src/Metalama.Patterns.Xaml) aspects.
+We're also considering finishing the work with the [observability](https://github.com/metalama/Metalama.Patterns/tree/HEAD/src/Metalama.Patterns.Observability) and [XAML](https://github.com/metalama/Metalama.Patterns/tree/HEAD/src/Metalama.Patterns.Xaml) aspects.
 
 ## Summary
 

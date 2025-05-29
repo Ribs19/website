@@ -121,5 +121,5 @@ Other verification tools may fail to understand the code after it has been enhan
 ## Resources
 
 - Reference documentation: [Verifying architecture](https://doc.metalama.net/conceptual/architecture).
-- Source code: [Metalama.Extensions.Architecture](https://github.com/metalama/Metalama.Extensions/tree/release/2024.2/src/Metalama.Extensions.Architecture)
+- Source code: [Metalama.Extensions.Architecture](https://github.com/metalama/Metalama.Extensions/tree/HEAD/src/Metalama.Extensions.Architecture)
 - NuGet package: [Metalama.Extensions.Architecture](https://www.nuget.org/packages/Metalama.Extensions.Architecture)

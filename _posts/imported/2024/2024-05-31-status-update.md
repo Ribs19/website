@@ -38,7 +38,7 @@ We've added the `IAdviceFactory.IntroduceConstructor` and `IAdviser<INamedType>.
 
 There are still some limitations we are working on: you can currently only add nested types, but you cannot add top-level types to a namespace.
 
-To see class introduction in action, see our [Memento](https://github.com/metalama/Metalama.Framework/blob/release/2024.2/tests/Metalama.Framework.Tests.Integration/Tests/Aspects/Samples/Memento.cs) example and its [generated code](https://github.com/metalama/Metalama.Framework/blob/release/2024.2/tests/Metalama.Framework.Tests.Integration/Tests/Aspects/Samples/Memento.t.cs).
+To see class introduction in action, see our [Memento](https://github.com/metalama/Metalama.Framework/blob/HEAD/tests/Metalama.Framework.Tests.Integration/Tests/Aspects/Samples/Memento.cs) example and its [generated code](https://github.com/metalama/Metalama.Framework/blob/HEAD/tests/Metalama.Framework.Tests.Integration/Tests/Aspects/Samples/Memento.t.cs).
 
 By the way, `IAdviser<T>` and its extension methods are the new way to add advice to a declaration. The `IAspectBuilder<T>` interface derives from `IAdviser<T>`. For instance, if you have an `IAspectBuilder<INamedType>`, you can do `builder.IntroduceMethod(...)` instead of `builder.Advice.IntroduceMethod( builder.Target, ...)`.
 

@@ -70,7 +70,7 @@ builder.Services.AddMetalamaCaching();
 
 * Reference documentation: [Metalama.Patterns.Caching](https://doc.metalama.net/patterns/caching)
 * NuGet package: [Metalama.Patterns.Caching](https://www.nuget.org/packages/Metalama.Patterns.Caching)
-* Source code: [Metalama.Patterns.Caching](https://github.com/metalama/Metalama.Patterns/tree/release/2024.2/src/Metalama.Patterns.Caching)
+* Source code: [Metalama.Patterns.Caching](https://github.com/metalama/Metalama.Patterns/tree/HEAD/src/Metalama.Patterns.Caching)
 * Example: [Create your own caching aspect](https://doc.metalama.net/examples/caching)
 * Blog post: [Five ways to add caching to your ASP.NET App](https://metalama.net/blog/aspnet-caching)
 * Blog post: [Simplify your ASP.NET Aspire caching with Metalama](https://metalama.net/blog/aspire-caching-metalama)
