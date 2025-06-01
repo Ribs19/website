@@ -18,9 +18,6 @@ keywords: "roadmap, milestones, Metalama, open source, project planning"
 
 ☐ Add functionality for intercepting the `await` keyword (time permitting).  
 
-{: .note }  
-Once this scope is completed, the Metalama Framework will be considered feature-complete, with remaining work focused on extensions and tooling.  
-
 ## 2026.0 (December 2025)
 
 ☐ Provide support for .NET 10 and C# 14.  
