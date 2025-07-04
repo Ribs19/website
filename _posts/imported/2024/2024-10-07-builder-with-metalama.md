@@ -11,7 +11,7 @@ author: "Metalama Team"
 image: /assets/images/2024/2024-10-builder-1/builder-dark.svg
 thumbnail: /assets/images/2024/2024-10-builder-1/builder-dark.svg
 summary: "This article shows how to implement the Builder pattern automatically with Metalama. It starts discussing the implementation strategy, then comments the source code of the aspect."
-source_url: https://github.com/metalama/Metalama.Samples/tree/develop/2024.2/examples/builder/builder-1
+source_url: https://github.com/metalama/Metalama.Samples/tree/HEAD/examples/builder/builder-1
 related_articles:
     - /builder-pattern
 ---
