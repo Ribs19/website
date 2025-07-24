@@ -1,5 +1,13 @@
 briefs:
 
+  - date: 2025-07-24
+    title: New example - Equality comparison
+    description: 'We have published a new commented example: [Equality Comparison](https://doc.metalama.net/examples/comparison).'
+
+  - date: 2025-07-23
+    title: Metalama 2025.1.11 released - Bug fixes
+    description: We've released Metalama 2025.1.11 fixing a few bugs. See the [GitHub release](https://github.com/metalama/Metalama/releases/tag/release%2F2025.1.11).
+
   - date: 2025-07-03
     title: Metalama 2025.1.10 released - VSX fixes
     description: We've released Metalama 2025.1.10 fixing a few bugs in our Visual Studio Extension. See the [GitHub release](https://github.com/metalama/Metalama/releases/tag/release%2F2025.1.10).
