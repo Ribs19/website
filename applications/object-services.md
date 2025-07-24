@@ -18,3 +18,5 @@ https://doc.metalama.net/examples/clone
 https://doc.metalama.net/examples/tostring
 
 ## Comparison
+
+https://doc.metalama.net/examples/comparison
