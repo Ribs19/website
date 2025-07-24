@@ -15,7 +15,9 @@ Instead, you can use [Metalama Architecture Verification](https://doc.metalama.n
 Suppose we have a base interface `IShape` and want to verify that only the `ShapeFactory` class can create instances of the interface. We can add a `[UseFactory]` aspect to it.
 
 ```cs
+// [<focus>]
 [UseFactory( typeof(ShapeFactory) )]
+// [<endfocus>]
 public interface IShape
 {
     public Color Color { get; }
@@ -43,7 +45,9 @@ We now get a warning whenever we try to directly use the constructor:
 ```csharp
 Drawing CreateDrawing()
 {
+    // [<warning>]
     // WARNING! Use ShapeFactory to get an instance of this class.
+    // [<endwarning>]
     var circle = new Circle( 1.1, Color.Red );
 
     return new Drawing { circle };

@@ -37,7 +37,9 @@ You can create an `[AddPolicy]` Metalama aspect that pulls the Polly dependency 
 ```cs
 public class CalculatorService
 {
+    // [<focus>]
     [AddPolly( "MyPolicy" )]
+    // [<endfocus>]
     public int Add( int a, int b )
     {
         // Your code here
@@ -68,12 +70,15 @@ internal class CalculatorService
 
     public int Add(int a, int b)
     {
+// [<added>]
         object? ExecuteCore()
         {
             try
             {
+// [<endadded>]
                 // Your code here.
                 return a + b;
+// [<added>]
             }
             catch (Exception e)
             {
@@ -85,6 +90,7 @@ internal class CalculatorService
 
         var policy = _policyFactory.GetPolicy(PolicyKind.Retry);
         return (int)policy.Execute(ExecuteCore);
+// [<endadded>]
     }
 }
 ```

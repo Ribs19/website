@@ -13,7 +13,9 @@ As the Memento pattern involves a lot of boilerplate code, it is a good candidat
 In the following example, the `[Memento]` custom attribute is all you need to implement the Memento pattern on the `Fish` class.
 
 ```cs
+// [<focus>]
 [Memento]
+// [<endfocus>]
 public sealed partial class Fish
 {
     public string? Name { get; set; }
@@ -43,6 +45,7 @@ Show me how it works!
 The aspect, once applied, will create an internal `Memento` class to capture the state of the `Fish` class. The `Fish` class will also have a `SaveToMemento` method and a `RestoreMemento` method to save and restore the state of the `Fish` object.
 
 ```cs
+// [<added>]
 public partial class Fish : IMementoable
 {
   public void RestoreMemento(IMemento memento)
@@ -72,6 +75,7 @@ public partial class Fish : IMementoable
     public IMementoable? Originator { get; }
   }
 }
+// [<endadded>]
 ```
 
 You can find the complete `Memento` aspect source code [here](https://doc.metalama.net/preview/examples/memento/memento-1#complete-aspect).

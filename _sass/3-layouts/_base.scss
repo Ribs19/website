@@ -74,71 +74,76 @@ html.metalama-website {
         border: none !important;
     }
 
+    // Exclude pre elements from general note/warning/etc styling
+    :has(:not(> pre)) {
+        .note,
+        .warning,
+        .important,
+        .tip,
+        .caution {
+            border-radius: 0.374rem;
+            padding: 1em;
+            margin-top: 20px;
+            margin-bottom: 20px;
 
-    .note,
-    .warning,
-    .important,
-    .tip,
-    .caution {
-        border-radius: 0.374rem;
-        padding: 1em;
-        margin-top: 20px;
-        margin-bottom: 20px;
+            // Cancel blockquote margins.
+            margin-left: 0;
+            margin-right: 0;
+        }
 
-        // Cancel blockquote margins.
-        margin-left: 0;
-        margin-right: 0;
-    }
+        .note,
+        .tip {
+            background-color: #01343d;
+            color: white;
 
-    .note,
-    .tip {
-        background-color: #01343d;
-        color: white;
+            a,
+            strong,
+            b {
+                color: white !important;
+            }
+        }
 
-        a,
-        strong,
-        b {
-            color: white !important;
+        .note:before,
+        .warning:before,
+        .important:before,
+        .caution:before,
+        .tip:before {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            ;
+        }
+
+        .note:before,
+        .tip:before {
+            content: "\1f6c8\a0\a0NOTE"
+        }
+
+        .tip:before {
+            content: "\1f6c8\a0\a0TIP"
+        }
+
+        .warning,
+        .important,
+        .caution {
+            background-color: #6a4200;
+        }
+
+        .warning:before {
+            content: "\26a0\a0\a0WARNING"
+        }
+
+        .caution:before {
+            content: "\26a0\a0\a0CAUTION"
+        }
+
+        .important:before {
+            content: "\26a0\a0\a0IMPORTANT"
         }
     }
 
-
-    .note:before,
-    .warning:before,
-    .important:before,
-    .caution:before,
-    .tip:before {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 10px;
-        ;
-    }
-
-    .note:before,
-    .tip:before {
-        content: "\1f6c8\a0\a0NOTE"
-    }
-
-    .tip:before {
-        content: "\1f6c8\a0\a0TIP"
-    }
-
-    .warning,
-    .important,
-    .caution {
-        background-color: #6a4200;
-    }
-
-    .warning:before {
-        content: "\26a0\a0\a0WARNING"
-    }
-
-    .caution:before {
-        content: "\26a0\a0\a0CAUTION"
-    }
-
-    .important:before {
-        content: "\26a0\a0\a0IMPORTANT"
+    .hidden {
+        display: none;
     }
 
 }

@@ -16,6 +16,32 @@ Dependency properties enable advanced property behaviors such as data binding, a
 {: .note }
 Available for WPF only.
 
+
+## Example
+
+```csharp
+public partial class FancyTextBlock : UserControl
+{
+    public FancyTextBlock()
+    {
+        InitializeComponent();
+    }
+
+    // [<focus>]
+    [Required]
+    [DependencyProperty]
+    // [<endfocus>]
+    public string Text { get; set; } = "Hello, world.";
+
+    // [<focus>]
+    [DependencyProperty]
+    // [<endfocus>]
+    public Brush FancyBorderBrush { get; set; }
+
+    public void OnFancyBorderBrushChanged() { /* Handle changes here. */}
+}
+```
+
 ## Benefits
 
 * **Boost your productivity**. Generate dependency properties from C# automatic properties without boilerplate code.
@@ -29,26 +55,6 @@ Available for WPF only.
 * Integrates with [Metalama.Patterns.Contracts](https://doc.metalama.net/patterns/contracts) to set validation rules without reinventing the wheel.
 * Fully customizable: add your own validation or `OnPropertyChanged` callbacks.
 
-## Example
-
-```csharp
-public partial class FancyTextBlock : UserControl
-{
-    public FancyTextBlock()
-    {
-        InitializeComponent();
-    }
-
-    [Required]
-    [DependencyProperty]
-    public string Text { get; set; } = "Hello, world.";
-
-    [DependencyProperty]
-    public Brush FancyBorderBrush { get; set; }
-
-    public void OnFancyBorderBrushChanged() { /* Handle changes here. */}
-}
-```
 
 ## Resources
 

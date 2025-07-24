@@ -65,7 +65,9 @@ Using that new `Log` attribute, the `TaxCalculator` class will look like this:
 ```cs
 public class TaxCalculator
 {
+    // [<focus>]
     [Log]
+    // [<endfocus>]
     public decimal GetTaxAmount(Invoice invoice)
     {
         if (invoice == null) throw new ArgumentNullException(nameof(invoice));

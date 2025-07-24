@@ -16,6 +16,29 @@ The [Command](https://doc.metalama.net/patterns/wpf/command) aspect of the `Meta
 {: .note }
 Available for WPF only.
 
+
+## Example
+
+In the following example, the `[Command]` aspect will generate an `ExecuteSaveCommand` property based on the `ExecuteSave` method and the `CanExecuteSave` property.
+
+```csharp
+[Observable]
+public partial class MainWindow : Window
+{
+    public bool HasChanges { get; private set; };
+
+    // [<focus>]
+    [Command]
+    // [<endfocus>]
+    public void ExecuteSave()
+    {
+        // Details skipped.
+    }
+
+    public bool CanExecuteSave => this.HasChanges;
+}
+```
+
 ## Benefits
 
 * **Boost your productivity**. Minimize boilerplate code to implement ICommand properties.
@@ -29,26 +52,6 @@ Available for WPF only.
 * Idiomatically C#: Metalama works _with_ your code, not against it.
 * Supports simple, parameterized, async, and background commands.
 * Integrates with the `[Observable]` aspect to handle the `CanExecute` functionality without boilerplate.
-
-## Example
-
-In the following example, the `[Command]` aspect will generate an `ExecuteSaveCommand` property based on the `ExecuteSave` method and the `CanExecuteSave` property.
-
-```csharp
-[Observable]
-public partial class MainWindow : Window
-{
-    public bool HasChanges { get; private set; };
-
-    [Command]
-    public void ExecuteSave()
-    {
-        // Details skipped.
-    }
-
-    public bool CanExecuteSave => this.HasChanges;
-}
-```
 
 ## Resources
 

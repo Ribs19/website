@@ -15,7 +15,9 @@ If you want to _dynamically_ apply decorators at runtime, see the Proxy pattern.
 The `Retry` aspect can be applied to a method as a custom attribute:
 
 ```cs
+// [<focus>]
 [Retry]
+// [<endfocus>]
 public void Send( Message message )
 {
     Console.WriteLine( "Sending message..." );
@@ -31,6 +33,48 @@ public void Send( Message message )
     }
 }
 ```
+
+When you compile, Metalama generates the following code for you:
+
+```cs
+[Retry]
+public void Send( Message message )
+{
+    // [<added>]
+    for ( var i = 0;; i++ )
+    {
+        try
+        {
+            // [<endadded>]
+            Console.WriteLine( "Sending message..." );
+        
+            // Simulate unreliable message sending
+            if ( ++this._sendCount % 3 == 0 )
+            {
+                Console.WriteLine( "Message sent successfully." );
+            }
+            else
+            {
+                throw new IOException( "Failed to send message." );
+            }
+
+            // [<added>]
+        }
+        catch ( Exception e ) when ( i < 3 )
+        {
+            var delay = this.Delay * Math.Pow( 2, i + 1 );
+
+            Console.WriteLine(
+                $"Method Broker.Send has failed " +
+                $" on {e.GetType().Name}. Retrying in {delay / 1000} seconds... ({i + 1}/3)" );
+
+            Thread.Sleep( (int) delay );
+        }
+    }
+    // [<endadded>]
+}
+```
+
 
 Thanks to the `[Retry]` aspect, this method never fails!
 

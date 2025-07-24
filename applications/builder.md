@@ -14,7 +14,9 @@ The main inconvenience of the Builder pattern is the large amount of repetitive 
 In the following example, we will use the `Song` class for the Builder pattern. The `Song` class has two required properties (`Artist` and `Title`) and two optional properties (`Duration` and `Genre`).
 
 ```cs
+// [<focus>]
 [GenerateBuilder]
+// [<endfocus>]
 public partial class Song
 {
     [Required] public string Artist { get; }
@@ -38,6 +40,7 @@ Show me how it works!
 The [GenerateBuilder](https://doc.metalama.net/examples/builder) aspect generates a `Builder` class nested inside the `Song` class and a `ToBuilder` method to create a new `Builder` object.
 
 ```cs
+// [<added>]
 public partial class Song
 {
 
@@ -71,6 +74,7 @@ public partial class Song
     }
   }
 }
+// [<endadded>]
 ```
 
 That's a lot of boilerplate you want to avoid!

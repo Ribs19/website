@@ -29,7 +29,9 @@ In the following snippet, the `PatternBrush` property is memoized, ensuring it i
 ```csharp
 public class ExpensiveResourceViewModel : DependencyObject
 {
+    // [<focus>]
     [Memoize]
+    // [<endfocus>]
     public VisualBrush PatternBrush => new VisualBrush
     {
         TileMode = TileMode.Tile,

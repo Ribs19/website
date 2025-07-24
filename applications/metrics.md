@@ -26,9 +26,11 @@ public class HatShop
 {
     private int _executionCount;
 
+    // [<focus>]
     [MeasureExecutionCount]
     [MeasureExecutionTime]
     [MeasureExceptionCount]
+    // [<endfocus>]
     public void PlaceOrder()
     {
         this._executionCount++;

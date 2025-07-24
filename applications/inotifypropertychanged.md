@@ -22,14 +22,18 @@ In the following code, the `[Observable]` aspect is applied to two classes: `Cus
 // THAT'S ALL. These classes implement INotifyPropertyChanged
 // Thanks to the [Observable] aspect.
 
+// [<focus>]
 [Observable]
+// [<endfocus>]
 public partial class Customer
 {
     public string FirstName { get; set; }
     public string LastName { get; set; }
 }
 
+// [<focus>]
 [Observable]
+// [<endfocus>]
 public partial class CustomerViewModel
 {
     // YES. This property can change.

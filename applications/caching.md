@@ -16,6 +16,42 @@ With [Metalama Caching](https://www.nuget.org/packages/Metalama.Patterns.Caching
 {: .note }
 `Metalama.Patterns.Caching` is a production-ready, professionally supported, and open-source aspect library. <i class="supported no-tooltip"></i>
 
+
+## Example
+
+Here is how caching can look using Metalama:
+
+```cs
+internal partial class CustomerServices
+{
+    // [<focus>]
+    [Cache]
+    // [<endfocus>]
+    public Customer GetCustomer(int id)
+    {
+        Console.WriteLine($">> Retrieving the customer {id} from database...");
+        Thread.Sleep(1000);
+        return new Customer { Id = id, Name = "Rubber Debugging Duck" };
+    }
+
+    // [<focus>]
+    [InvalidateCache(nameof(GetCustomer))]
+    // [<endfocus>]
+    public void UpdateCustomer(int id, string newName)
+    {
+        Console.WriteLine($">> Updating the customer {id} in database...");
+        Thread.Sleep(1000);
+    }
+}
+```
+
+To initialize Metalama Cache, add this line to your startup code:
+
+```csharp
+// Add the caching service.
+builder.Services.AddMetalamaCaching();
+```
+
 ## Benefits
 
 * **Reduced boilerplate**: Metalama Caching enables you to cache the return value of a method as a function of its arguments with just a `[Cache]` custom attribute. To invalidate the cache, add the `[InvalidateCache]` aspect to the update methods. To use a custom class as a parameter of a cached method, apply the `[CacheKey]` aspect to mark the properties that uniquely identify the object. Consequently, your business code becomes shorter and more readable.
@@ -34,37 +70,6 @@ With [Metalama Caching](https://www.nuget.org/packages/Metalama.Patterns.Caching
 * Support for dependencies.
 * Support for Redis. <i class="premium"></i>
 * Support for cache synchronization over a message bus. <i class="premium"></i>
-
-## Example
-
-Here is how caching can look using Metalama:
-
-```cs
-internal partial class CustomerServices
-{
-    [Cache]
-    public Customer GetCustomer(int id)
-    {
-        Console.WriteLine($">> Retrieving the customer {id} from database...");
-        Thread.Sleep(1000);
-        return new Customer { Id = id, Name = "Rubber Debugging Duck" };
-    }
-
-    [InvalidateCache(nameof(GetCustomer))]
-    public void UpdateCustomer(int id, string newName)
-    {
-        Console.WriteLine($">> Updating the customer {id} in database...");
-        Thread.Sleep(1000);
-    }
-}
-```
-
-To initialize Metalama Cache, add this line to your startup code:
-
-```csharp
-// Add the caching service.
-builder.Services.AddMetalamaCaching();
-```
 
 ## Resources
 

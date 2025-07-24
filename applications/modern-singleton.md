@@ -15,7 +15,9 @@ The main problem with the modern Singleton is that it is challenging to ensure t
 The following `PerformanceCounterManager` class is a modern Singleton example. It has a public constructor but is registered as a Singleton in the DI container.
 
 ```cs
+// [<focus>]
 [Singleton]
+// [<endfocus>]
 public class PerformanceCounterManager : IPerformanceCounterManager
 {
     private readonly ConcurrentDictionary<string, int> _counters = new();
@@ -36,7 +38,9 @@ The `[Singleton]` aspect reports warnings when any class other than `Startup` or
 ```cs
 class MetricsCollection( IPerformanceCounterUploader uploader )
 {
-    // WARNING! The class is a [Singleton].
+    // [<warning>]
+    // WARNING: The class is a [Singleton]. Do not create new instances, instead use PerformanceCounterManager.Instance.
+    // [<endwarning>]
     PerformanceCounterManager _performanceManager = new( uploader );
 }
 ```

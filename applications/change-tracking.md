@@ -33,7 +33,9 @@ You can create an aspect that adds the `IChangeTracking` or `IRevertibleChangeTr
 Implementing `IChangeTracking` or even `IRevertibleChangeTracking` in the following classes can be as easy as adding a `[TrackChanges]` custom attribute. We made a slight modification to the .NET pattern: we require an `IsTrackingChanges` property to be enabled for change tracking to work.
 
 ```csharp
+// [<focus>]
 [TrackChanges]
+// [<endfocus>]
 public partial class Comment
 {
     public Guid Id { get; init; }
@@ -85,11 +87,14 @@ The [TrackChanges](https://doc.metalama.net/examples/change-tracking/change-trac
 ```csharp
 public partial class Comment : ISwitchableChangeTracking, IChangeTracking
 {
+// [<added>]
     private string _author;
     private string _content;
+// [<endadded>]
 
     public required Guid Id { get; init; }
 
+// [<added>]
     public required string Author
     {
         get => this._author;
@@ -132,6 +137,7 @@ public partial class Comment : ISwitchableChangeTracking, IChangeTracking
             IsChanged = true;
         }
     }
+// [<endadded>]
 }
 ```
 

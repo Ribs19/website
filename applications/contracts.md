@@ -23,18 +23,26 @@ The following snippet shows contracts applied to properties of the `Customer` cl
 ```csharp
 public class Customer
 {
+    // [<focus>]
     [Phone]
+    // [<endfocus>]
     public string? Phone { get; set; }
 
+    // [<focus>]
     [Url]
+    // [<endfocus>]
     public string? Url { get; set; }
 
+    // [<focus>]
     [Range( 1900, 2100 )]
+    // [<endfocus>]
     public int? BirthYear { get; set; }
 
     public string? FirstName { get; set; }
 
+    // [<focus>]
     [Required]
+    // [<endfocus>]
     public string LastName { get; set; }
 }
 ```

@@ -1,28 +1,44 @@
 ---
 title: ToString
+summary: "Learn how to use Metalama to automatically generate ToString methods for C# classes, improving debugging and logging with customizable formatting options."
+keywords:
+- c# tostring
+- c# ToString
+- c# string representation
+- c# debugging
+- c# logging
+- metalama tostring
+- automatic toString
+- toString generation
+- object toString
+- toString override
 ---
 
 {: .intro }
-Good `ToString` implementations boost your productivity while debugging and analyzing logs. It should typically return a compact description of the object, including its identity and state. In many types, `ToString` would include all fields and stateful properties. You can use Metalama to avoid writing this boilerplate code by hand.
+A well-crafted `ToString` implementation can significantly enhance your productivity during debugging and log analysis. Typically, it should return a concise description of the object, highlighting its identity and state. With Metalama, you can bypass writing this repetitive code manually.
 
 ## Example
 
-Let's use the [ToString example aspect](https://doc.metalama.net/examples/tostring/tostring-1) and add the `[ToString]` aspect to a class. In this example, we follow an opt-out approach, and mark with `[NotToString]` the memers we don't want to be included.
+Let's explore the [ToString example aspect](https://doc.metalama.net/examples/tostring/tostring-1) and apply the `[ToString]` aspect to a class. In this scenario, we adopt an opt-out approach, marking members with `[NotToString]` that we prefer to exclude.
 
 ```csharp
+// [<focus>]
 [ToString]
+// [<endfocus>]
 internal class MovingVertex
 {
-    public double X  { get; set; }
+    public double X { get; set; }
 
-    public double Y  { get; set; }
+    public double Y { get; set; }
 
-    public double DX  { get; set; }
+    public double DX { get; set; }
 
     public double DY { get; set; }
 
+    // [<focus>]
     [NotToString]
-    public double Velocity => Math.Sqrt( (this.DX * this.DX) + (this.DY * this.DY) );
+    // [<endfocus>]
+    public double Velocity => Math.Sqrt((this.DX * this.DX) + (this.DY * this.DY));
 }
 ```
 
@@ -37,11 +53,7 @@ public override string ToString()
 ```
 {% endraw %}
 
-It's easy to change the code generation pattern. You just need to change a single class: the aspect itself, `ToStringAttribute`.
-
-## ToString as a refactoring
-
-
+Modifying the code generation pattern is straightforward. Simply adjust the aspect class itself, `ToStringAttribute`.
 
 ## Resources
 

@@ -12,8 +12,10 @@ The Singleton pattern is arguably one of the most famous creational design patte
 The following `PerformanceCounterManager` class is a classic Singleton example, designed to consistently gather performance counters across an entire application. The `[Singleton]` class attribute indicates it's a Singleton and is also an aspect that can be [developed using Metalama](https://doc.metalama.net/examples/singleton/singleton-1#aspect-implementation). It generates a static `Instance` property and reports an error if there is a public constructor. If needed, it also creates a private constructor.
 
 ```cs
+// [<focus>]
 [Singleton]
-public partial class PerformanceCounterManager
+// [<endfocus>]
+public class PerformanceCounterManager
 {
     private readonly ConcurrentDictionary<string, int> _counters = new();
 
@@ -22,18 +24,20 @@ public partial class PerformanceCounterManager
 }
 ```
 
-We can now use the `Instance` property from anywhere.
-
-{: .show-more }
-Show me how it works!
-
 The `[Singleton]` aspect generates the following code:
 
 ```cs
-public partial class PerformanceCounterManager
+public class PerformanceCounterManager
 {
+    // [<added>]
     public static PerformanceCounterManager Instance { get; } = new();
     private PerformanceCounterManager() {}
+    // [<endadded>]
+
+    private readonly ConcurrentDictionary<string, int> _counters = new();
+
+    public void IncrementCounter(string name)
+        => this._counters.AddOrUpdate(name, 1, (_, value) => value + 1);
 }
 ```
 

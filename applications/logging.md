@@ -41,7 +41,9 @@ internal class Fabric : ProjectFabric
             .SelectMany(type => type.Methods)
             .Where(method =>
                 method.Accessibility == Accessibility.Public && method.Name != "ToString")
+    // [<focus>]
             .AddAspectIfEligible<LogAttribute>();
+    // [<endfocus>]
 }
 ```
 

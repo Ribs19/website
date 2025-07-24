@@ -120,16 +120,20 @@ Here is the _transformed_ code, i.e., the one that gets executed:
 ```csharp
 public void Greet()
 {
+// [<added>]
   Console.WriteLine( $"{meta.Target.Method}: starting.")
 
   try
   {
+// [<endadded>]
     Console.WriteLine("Hello, world.");
+// [<added>]
   }
   finally
   {
     Console.WriteLine( $"{meta.Target.Method}: completed.")
   }
+// [<endadded>]
 }
 ```
 

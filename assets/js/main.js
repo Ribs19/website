@@ -283,11 +283,11 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('p.show-more').each(function () {
     var $showMorePara = $(this);
-    var $nextHeader = $showMorePara.nextUntil('h2, h3, h4'); // All blocks until the next header
+    var $showMoreContent = $showMorePara.nextUntil('h2, h3, h4'); // All blocks until the next header
     var $link = $('<a class="show-more-link">' + $showMorePara.text() + '</a>'); // Create the hyperlink
 
     // Hide the blocks
-    $nextHeader.addClass('hidden');
+    $showMoreContent.addClass('hidden');
 
     // Replace the paragraph with the hyperlink
     $showMorePara.replaceWith($link);
@@ -296,7 +296,7 @@ $(document).ready(function () {
     $link.on('click', function (e) {
         e.preventDefault();
         $link.hide(); // Hide the link
-        $nextHeader.removeClass('hidden'); // Show all hidden blocks
+        $showMoreContent.removeClass('hidden'); // Show all hidden blocks
     });
   });
 });
@@ -359,25 +359,7 @@ $(document).ready(function () {
   }
 	*/
 
-  // Handle the 'show-more' magic.
-  $('p.show-more').each(function () {
-    var $showMorePara = $(this);
-    var $nextHeader = $showMorePara.nextUntil('h2, h3, h4'); // All blocks until the next header
-    var $link = $('<a class="show-more-link">' + $showMorePara.text() + '</a>'); // Create the hyperlink
-
-    // Hide the blocks
-    $nextHeader.addClass('hidden');
-
-    // Replace the paragraph with the hyperlink
-    $showMorePara.replaceWith($link);
-
-    // Add a click event to the hyperlink
-    $link.on('click', function (e) {
-        e.preventDefault();
-        $link.hide(); // Hide the link
-        $nextHeader.removeClass('hidden'); // Show all hidden blocks
-    });
-  });
+  
 });
 
 

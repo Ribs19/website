@@ -37,27 +37,19 @@ public class Fabric : ProjectFabric
 {
     public override void AmendProject(IProjectAmender amender)
     {
-        amender.SelectReflectionType(typeof(IOrderService)).GenerateStaticProxy();
+        amender
+            .SelectReflectionType(typeof(IOrderService))
+// [<focus>]
+            .GenerateStaticProxy();
+// [<endfocus>]
     }
 }
 ```
 
-We can now use the proxy class as follows:
+This instructs Metalama to generate the following code:
 
 ```csharp
-var orderServiceProxy = new OrderServiceProxy(
-    new OrderService(),
-    new LoggingInterceptor());
-
-orderServiceProxy.PlaceOrder(order);
-```
-
-{: .show-more }
-Show me how it works!
-
-Metalama generates the following code:
-
-```csharp
+// [<added>]
 public class OrderServiceProxy : IOrderService
 {
     private IOrderService _intercepted;
@@ -93,7 +85,21 @@ public class OrderServiceProxy : IOrderService
         }
     }
 }
+// [<endadded>]
 ```
+
+We can now use the proxy class as follows:
+
+```csharp
+var orderServiceProxy = new OrderServiceProxy(
+    new OrderService(),
+    new LoggingInterceptor());
+
+orderServiceProxy.PlaceOrder(order);
+```
+
+{: .show-more }
+Show me more!
 
 An interceptor is a class implementing the following interface:
 

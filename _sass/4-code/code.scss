@@ -94,11 +94,7 @@ div.highlighter-rouge {
 
 
   // From https://marauderxtreme.github.io/pygmentize-stylesheets/css/themes/vsc.css
-  pre {
-    line-height: 125%;
-  }
-
-  td.linenos .normal {
+    td.linenos .normal {
     color: inherit;
     background-color: transparent;
     padding-left: 5px;
@@ -772,4 +768,83 @@ color: #a31515;
   border: 1px solid gray;
   padding: 40px;
 }
+
+  // Highlighted code lines in PRE blocks
+  pre .highlighted {
+    background-color: rgba(0, 100, 0, 0.8); 
+  }
+
+  // Additional highlighting classes for different marker types
+  .warning {
+    background-color: rgba(255, 165, 0, 0.3); // Orange background for warnings
+    padding: 0 2px;
+    border-radius: 2px;
+    border-left: 3px solid #ff8c00;
+
+    color:  #ff8c00 !important;
+    span {
+    color:  #ff8c00 !important; }
+  }
+
+  .important {
+    background-color: rgba(255, 0, 0, 0.2); // Light red background for important sections
+    padding: 0 2px;
+    border-radius: 2px;
+    font-weight: bold;
+    color: inherit;
+    box-shadow: 0 0 3px rgba(255, 0, 0, 0.4);
+  }
+
+  .deprecated {
+    background-color: rgba(128, 128, 128, 0.3); // Gray background for deprecated code
+    padding: 0 2px;
+    border-radius: 2px;
+    text-decoration: line-through;
+    color: #666;
+    opacity: 0.8;
+  }
+
+  .added {
+    background-color: rgba(0, 255, 0, 0.2); // Light green background for new/added code
+  }
+
+  .focus {
+    background-color: rgba(0, 123, 255, 0.2); // Light blue background for focus
+    padding: 0 2px;
+    border: 1px solid rgba(0, 123, 255, 0.5);
+    filter: brightness(1.2); // Increase brightness for all text and child elements
+  }
+
+  .primary {
+    background-color: rgba(138, 43, 226, 0.2); // Light purple for primary highlighting
+    padding: 0 2px;
+    border-radius: 2px;
+    border-bottom: 2px solid #8a2be2;
+    color: inherit;
+  }
+
+  .secondary {
+    background-color: rgba(255, 20, 147, 0.2); // Light pink for secondary highlighting  
+    padding: 0 2px;
+    border-radius: 2px;
+    border-top: 2px solid #ff1493;
+    color: inherit;
+  }
+
+  // Override for specific code highlighting themes if needed
+  pre {
+    .warning, .important, .deprecated, .added, .focus, .primary, .secondary {
+      // Ensure highlighting works with syntax highlighting
+      font-weight: inherit;
+      font-style: inherit;
+    }
+    
+    .deprecated {
+      font-weight: normal; // Override for deprecated to keep normal weight with strikethrough
+    }
+    
+    .important {
+      font-weight: bold; // Keep bold for important sections
+    }
+  }
 }

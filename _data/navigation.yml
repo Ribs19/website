@@ -147,6 +147,13 @@ nodes:
           - title: "Classic Object Services"
             url: "/applications/object-services"
             description: "Stop writing boilerplate for ToString methods, equality contracts, cloning, and more."
+            nodes:
+              - title: "Cloning"
+                url: /applications/cloning
+              - title: "ToString"
+                url: /applications/tostring
+              - title: "Equatable"
+                url: /applications/equatable
           - title: Defensive Programming
             url: /applications/contracts
             supported: true
