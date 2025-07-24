@@ -4,6 +4,7 @@ summary: "The document explains implementing change tracking in .NET UIs using `
 keywords: "change tracking, IChangeTracking, IRevertibleChangeTracking, Dirty Flag, Metalama, code generation, property instrumentation"
 ---
 
+{: .intro }
 When programming UIs, especially "transactional" UIs with _Ok_ buttons, it's necessary to detect whether a data object has been modified. This feature is often called the _Dirty Flag_. It allows, for instance, enabling or disabling the _Save_ button. In .NET, this behavior is abstracted by the `IChangeTracking` interface. Another interface, `IRevertibleChangeTracking`, supports the _Reset_ feature.
 
 Here is the definition of these system interfaces:

@@ -4,6 +4,7 @@ summary: "The Builder pattern constructs complex objects step by step but requir
 keywords: "Builder pattern, creational design pattern, immutable object, abstraction"
 ---
 
+{: .intro }
 The Builder pattern is a creational design pattern that allows you to construct complex objects step by step. It is especially useful when you need to create an immutable object with many optional parameters or properties. A variant of this pattern, the Abstract Builder, adds abstraction to the construction process.
 
 The main inconvenience of the Builder pattern is the large amount of repetitive code required to implement it. This can be virtually eliminated with a Metalama aspect.

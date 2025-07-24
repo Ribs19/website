@@ -4,6 +4,7 @@ summary: "This document explains the Singleton pattern, highlighting its impleme
 keywords: "Singleton pattern, Metalama framework, Singleton attribute, static Instance property, code consistency, boilerplate reduction"
 ---
 
+{: .intro }
 The Singleton pattern is arguably one of the most famous creational design patterns. It focuses on ensuring that a class has only one instance and provides a global point of access to that instance.
 
 ## Example
