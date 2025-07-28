@@ -165,16 +165,6 @@ summary: "Search for ready-made aspects, extensions and examples for Metalama."
                 },
             }),
             instantsearch.widgets.refinementList({
-                container: '#authors-list',
-                attribute: 'author',
-                cssClasses: {
-                    list: '',
-                    count: 'count',
-                    label: 'label',
-                    checkbox: '',
-                },
-            }),
-            instantsearch.widgets.refinementList({
                 container: '#categories-list',
                 attribute: 'categories',
                 cssClasses: {
@@ -204,6 +194,17 @@ summary: "Search for ready-made aspects, extensions and examples for Metalama."
                     checkbox: '',
                 },
             }),
+            instantsearch.widgets.refinementList({
+                container: '#authors-list',
+                attribute: 'author',
+                cssClasses: {
+                    list: '',
+                    count: 'count',
+                    label: 'label',
+                    checkbox: '',
+                },
+            }),
+
 
             instantsearch.widgets.searchBox({
                 container: '#searchbox',
