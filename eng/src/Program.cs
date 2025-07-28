@@ -15,7 +15,7 @@ var product = new Product( PostSharpDocumentationDependencies.PostSharpDocumenta
     [
         // Run `b generate-scripts` after changing these parameters.
         new UpdateSearchProductExtension(
-            "https://0fpg9nu41dat6boep.a1.typesense.net",
+            "https://typesense.postsharp.net",
             "metalamaweb",
             "https://metalama.net/sitemap.xml",
             () => new PlainDocumentParser( ["//main"] ),
