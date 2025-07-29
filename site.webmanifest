@@ -1,0 +1,26 @@
+{
+  "name": "Metalama Website",
+  "short_name": "Metalama",
+  "description": "A C# meta-programming framework for code generation and validation",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#191321",
+  "theme_color": "#191321",
+  "icons": [
+    {
+      "src": "/assets/images/icons/android-icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icons/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/icons/apple-icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    }
+  ]
+}
