@@ -78,7 +78,7 @@ gulp.task("rev-rewrite", function () {
     const manifest = readFileSync("_cdn/assets/rev-manifest.json");
 
     return gulp
-        .src(["_cdn/**/*.{html,css,js}"])
+        .src(["_cdn/**/*.{html,css,js,webmanifest}"])
         .pipe(revRewrite({ manifest }))
         .pipe(gulp.dest("_cdn"));
 });
@@ -86,7 +86,7 @@ gulp.task("rev-rewrite", function () {
 // Copy files that are not renamed.
 gulp.task('copy-html', function () {
     return gulp
-        .src('_site/**/*.{html,xml,json,ico,webmanifest}') 
+        .src('_site/**/*.{html,xml,json,ico}') 
         .pipe(gulp.dest('_cdn'));
 });
 
