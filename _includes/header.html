@@ -67,19 +67,24 @@
 
     {% if include.noheader != "true" %}
 <script>
-  var _paq = window._paq = window._paq || [];
-  _paq.push(["setExcludedQueryParams", ["clientid","ck_subscriber_id","qid","license","interests","version","vgo_ee","conf"]]);
-  _paq.push(['enableLinkTracking']);
-  _paq.push(["setDoNotTrack", "true"]);
-  _paq.push(["setCookieDomain", "*.metalama.net"]);
-  _paq.push(['trackPageView']);
-  (function() {
-    var u="https://postsharp.matomo.cloud/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '10']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src='https://cdn.matomo.cloud/postsharp.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
+  // Only execute Matomo if cf_clearance cookie is defined
+  if (document.cookie.split(';').some(function(item) {
+    return item.trim().indexOf('cf_clearance=') === 0;
+  })) {
+    var _paq = window._paq = window._paq || [];
+    _paq.push(["setExcludedQueryParams", ["clientid","ck_subscriber_id","qid","license","interests","version","vgo_ee","conf"]]);
+    _paq.push(['enableLinkTracking']);
+    _paq.push(["setDoNotTrack", "true"]);
+    _paq.push(["setCookieDomain", "*.metalama.net"]);
+    _paq.push(['trackPageView']);
+    (function() {
+      var u="https://postsharp.matomo.cloud/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '10']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src='https://cdn.matomo.cloud/postsharp.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  }
 </script>
     {% endif %}
 
@@ -150,6 +155,7 @@
         {% endif %}
         
 
+        {% comment %}
         <script type="text/javascript">
             (function(c,l,a,r,i,t,y){
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -157,6 +163,7 @@
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
             })(window, document, "clarity", "script", "sm2e4xes67");
         </script>
+        {% endcomment %}
 </head>
 
 <body style="background: url('/assets/images/homepage/main-background.svg') no-repeat; background-size: cover;" data-spy="scroll" data-target="#toc">
