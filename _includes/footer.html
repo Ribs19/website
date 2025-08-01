@@ -18,6 +18,35 @@
 
 <script src="/assets/js/main.js"></script>
 
+<script>
+
+function jsdOnload(){
+  window.cloudflare.jsd.executeOnce(
+    {
+      callback: function(result) {
+        console.log('jsd outcome', result);
+
+                // Matomo
+                var _paq = window._paq = window._paq || [];
+                _paq.push(["setExcludedQueryParams", ["clientid","ck_subscriber_id","qid","license","interests","version","vgo_ee","conf"]]);
+                _paq.push(['enableLinkTracking']);
+                _paq.push(["setDoNotTrack", "true"]);
+                _paq.push(["setCookieDomain", "*.metalama.net"]);
+                _paq.push(['trackPageView']);
+                (function() {
+                var u="https://postsharp.matomo.cloud/";
+                _paq.push(['setTrackerUrl', u+'matomo.php']);
+                _paq.push(['setSiteId', '10']);
+                var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+                g.async=true; g.src='https://cdn.matomo.cloud/postsharp.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+                })();
+        }
+    }
+  );
+}
+</script>
+<script src="/cdn-cgi/challenge-platform/scripts/jsd/api.js?onload=jsdOnload" async></script>
+
 </body>
 
 </html>

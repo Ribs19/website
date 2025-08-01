@@ -65,29 +65,6 @@
     <meta name="keywords" content="{{page.keywords | join: ', ' | escape}}" />
     {% endif %}
 
-    {% if include.noheader != "true" %}
-<script>
-  // Only execute Matomo if cf_clearance cookie is defined
-  if (document.cookie.split(';').some(function(item) {
-    return item.trim().indexOf('cf_clearance=') === 0;
-  })) {
-    var _paq = window._paq = window._paq || [];
-    _paq.push(["setExcludedQueryParams", ["clientid","ck_subscriber_id","qid","license","interests","version","vgo_ee","conf"]]);
-    _paq.push(['enableLinkTracking']);
-    _paq.push(["setDoNotTrack", "true"]);
-    _paq.push(["setCookieDomain", "*.metalama.net"]);
-    _paq.push(['trackPageView']);
-    (function() {
-      var u="https://postsharp.matomo.cloud/";
-      _paq.push(['setTrackerUrl', u+'matomo.php']);
-      _paq.push(['setSiteId', '10']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src='https://cdn.matomo.cloud/postsharp.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
-  }
-</script>
-    {% endif %}
-
     {% if page.layout == "post" or page.layout == "new-post" %}
     <script type="application/ld+json">
         {
