@@ -469,17 +469,14 @@ window.onloadTurnstileCallback = function () {
     'error-callback': function () {
       console.log('Turnstile challenge failed.');
       localStorage.setItem('_human_verified', 'false');
-      InitializeMatomo();
     },
     'expired-callback': function () {
       console.log('Turnstile challenge expired.');
       localStorage.setItem('_human_verified', 'false');
-      InitializeMatomo();
     },
     'timeout-callback': function () {
       console.log('Turnstile challenge timed out.');
       localStorage.setItem('_human_verified', 'false');
-      InitializeMatomo();
     }
   });
 };
