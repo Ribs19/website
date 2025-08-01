@@ -141,6 +141,18 @@
             })(window, document, "clarity", "script", "sm2e4xes67");
         </script>
         {% endcomment %}
+
+        <!-- Cloudflare Turnstile -->
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+        <script>
+        // Initialize Turnstile when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for both main.js and Turnstile to load, then set up the widget
+            waitForTurnstile().then(() => {
+                setupTurnstile();
+            });
+        });
+        </script>
 </head>
 
 <body style="background: url('/assets/images/homepage/main-background.svg') no-repeat; background-size: cover;" data-spy="scroll" data-target="#toc">

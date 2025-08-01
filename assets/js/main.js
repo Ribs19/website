@@ -421,34 +421,12 @@ function InitializeMatomo() {
 	})();
 }
 
-function waitForClearanceCookie(timeoutMs = 5000, checkInterval = 100) {
-	return new Promise((resolve, reject) => {
-		const start = Date.now();
-
-		function check() {
-			if (document.cookie.includes('cf_clearance=')) {
-				resolve(true);
-			} else if (Date.now() - start > timeoutMs) {
-				resolve(false); // not found in time
-			} else {
-				setTimeout(check, checkInterval);
-			}
-		}
-
-		if (document.readyState === 'complete') {
-			check();
-		} else {
-			window.addEventListener('load', check);
-		}
-	});
-}
-
-// Example usage
-waitForClearanceCookie(10000).then(passed => {
-	if (passed) {
-		console.log('Challenge passed: cf_clearance set');
-		InitializeMatomo();
-	} else {
-		console.warn('cf_clearance cookie not set within timeout');
-	}
-});
+window.onloadTurnstileCallback = function () {
+  turnstile.render("#turnstile-container", {
+    sitekey: "0x4AAAAAABnl924VVHcjQp5L",
+    callback: function (token) {
+      console.log(`Challenge Success ${token}`);
+	  InitializeMatomo();
+    },
+  });
+};
