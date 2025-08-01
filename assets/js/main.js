@@ -406,6 +406,7 @@ document.querySelectorAll('.scroll-wrapper').forEach(wrapper => {
 
 
 function InitializeMatomo() {
+	console.log('Initializing Matomo.');
 	var _paq = window._paq = window._paq || [];
 	_paq.push(["setExcludedQueryParams", ["clientid", "ck_subscriber_id", "qid", "license", "interests", "version", "vgo_ee", "conf"]]);
 	_paq.push(['enableLinkTracking']);
@@ -427,12 +428,10 @@ function checkHumanVerification() {
   const humanVerified = localStorage.getItem('_human_verified');
   
   if (humanVerified === 'true') {
-    console.log('Human verification succeeded, initializing Matomo directly');
     InitializeMatomo();
   } else if (humanVerified === 'false') {
-    console.log('Human verification previously failed, ignoring Matomo directly');
+    // Ignoring.
   } else {
-    console.log('Human verification not found, loading Turnstile');
     loadTurnstile();
   }
 }
