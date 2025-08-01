@@ -127,8 +127,8 @@
                 }
             };
         </script>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script defer src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script defer id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         {% endif %}
         
 
@@ -141,18 +141,6 @@
             })(window, document, "clarity", "script", "sm2e4xes67");
         </script>
         {% endcomment %}
-
-        <!-- Cloudflare Turnstile -->
-        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-        <script>
-        // Initialize Turnstile when the page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            // Wait for both main.js and Turnstile to load, then set up the widget
-            waitForTurnstile().then(() => {
-                setupTurnstile();
-            });
-        });
-        </script>
 </head>
 
 <body style="background: url('/assets/images/homepage/main-background.svg') no-repeat; background-size: cover;" data-spy="scroll" data-target="#toc">

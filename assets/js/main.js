@@ -421,7 +421,7 @@ function InitializeMatomo() {
 	})();
 }
 
-window.onloadTurnstileCallback = function () {
+onloadTurnstileCallback = function () {
   turnstile.render("#turnstile-container", {
     sitekey: "0x4AAAAAABnl924VVHcjQp5L",
     callback: function (token) {
