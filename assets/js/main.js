@@ -141,22 +141,22 @@ function initializeHeader() {
 	var currentSubmenu = null;
 
 	// Present <a> link behavior on touch because there is no hover.
-	if ( isTouch()  ) {
+	if (isTouch()) {
 		$(".has-dropdownmenu > a").on("click", function (e) {
-			if ( !isMobile() || $(this).hasClass('.has-mobile-dropdownmenu')) {
-				e.preventDefault(); 
+			if (!isMobile() || $(this).hasClass('.has-mobile-dropdownmenu')) {
+				e.preventDefault();
 			}
-			});
+		});
 	}
 
 
 	// Click on the link on mobile displays the drop-down menu in the mobile way.
 	if (isMobile()) {
 		$(".has-mobile-dropdownmenu > a").on("click", function (e) {
-		
+
 			var submenuId = $(this).data("submenu");
 			e.preventDefault();
-			
+
 			var $submenu = $("#" + submenuId);
 			var $parentItem = $(this).parent(); // .has-dropdownmenu
 
@@ -178,7 +178,7 @@ function initializeHeader() {
 			}
 
 			setHeaderBg($(window).scrollTop());
-			}
+		}
 		);
 	}
 
@@ -210,156 +210,156 @@ function initializeHeader() {
 	});
 }
 
-$(document).ready(function () {	
+$(document).ready(function () {
 	initializeHeader();
 
 
 	// Manage the pinned status of toc_nav in the blog.
 	var isLeftTocPinned = false;
 
-	function adjustPinned() {    
-	  var scrollPosition = $(window).scrollTop();
-	  if (scrollPosition > 600 && !isLeftTocPinned ) {
-		  $('.toc_nav').addClass('pinned');
-		  isLeftTocPinned = true;
-	  } else if (scrollPosition < 200 && isLeftTocPinned ) {
-		  $('.toc_nav').removeClass('pinned');
-		  isLeftTocPinned = false;
-	  }
+	function adjustPinned() {
+		var scrollPosition = $(window).scrollTop();
+		if (scrollPosition > 600 && !isLeftTocPinned) {
+			$('.toc_nav').addClass('pinned');
+			isLeftTocPinned = true;
+		} else if (scrollPosition < 200 && isLeftTocPinned) {
+			$('.toc_nav').removeClass('pinned');
+			isLeftTocPinned = false;
+		}
 	}
 
 	adjustPinned();
-	$(window).scroll(function() {
-	  adjustPinned();    
+	$(window).scroll(function () {
+		adjustPinned();
 	});
-	
+
 });
 
 
 // Track the active section in the right nav.
 $(document).ready(function () {
-  var $navLinks = $("nav.right-nav a");
+	var $navLinks = $("nav.right-nav a");
 
-  // Scroll 100px under the clicked target instantly to cope with the fixed header.
-  $navLinks.on("click", function(e) {
-    e.preventDefault();
-    var targetId = $(this).attr("href");
-    var $target = $(targetId);
-    if ($target.length) {
-      // Removed animation; perform instant scroll
-      $("html, body").scrollTop($target.offset().top - 100);
-    }
-  });
+	// Scroll 100px under the clicked target instantly to cope with the fixed header.
+	$navLinks.on("click", function (e) {
+		e.preventDefault();
+		var targetId = $(this).attr("href");
+		var $target = $(targetId);
+		if ($target.length) {
+			// Removed animation; perform instant scroll
+			$("html, body").scrollTop($target.offset().top - 100);
+		}
+	});
 
-  function onScroll() {
-    var currentSectionId = "";
-    var minDistance = Infinity;
+	function onScroll() {
+		var currentSectionId = "";
+		var minDistance = Infinity;
 
-    $navLinks.each(function () {
-      var $link = $(this);
-      var targetId = $link.attr("href").replace(/^#/, "");
-      var $target = $("#" + targetId);
-      if ($target.length) {
-        var rect = $target[0].getBoundingClientRect();
-        if (rect.top >= 0 && rect.top < minDistance) {
-          minDistance = rect.top;
-          currentSectionId = targetId;
-        }
-      }
-    });
+		$navLinks.each(function () {
+			var $link = $(this);
+			var targetId = $link.attr("href").replace(/^#/, "");
+			var $target = $("#" + targetId);
+			if ($target.length) {
+				var rect = $target[0].getBoundingClientRect();
+				if (rect.top >= 0 && rect.top < minDistance) {
+					minDistance = rect.top;
+					currentSectionId = targetId;
+				}
+			}
+		});
 
-    $navLinks.parent().removeClass("active");
+		$navLinks.parent().removeClass("active");
 
-    if (currentSectionId) {
-      $("nav.right-nav a[href='#" + currentSectionId + "']").parent().addClass("active");
-    }
-  }
+		if (currentSectionId) {
+			$("nav.right-nav a[href='#" + currentSectionId + "']").parent().addClass("active");
+		}
+	}
 
-  $(window).on("scroll", onScroll);
-  onScroll();
+	$(window).on("scroll", onScroll);
+	onScroll();
 });
 
- // Handle the 'show-more' magic.
+// Handle the 'show-more' magic.
 $(document).ready(function () {
-  $('p.show-more').each(function () {
-    var $showMorePara = $(this);
-    var $showMoreContent = $showMorePara.nextUntil('h2, h3, h4'); // All blocks until the next header
-    var $link = $('<a class="show-more-link">' + $showMorePara.text() + '</a>'); // Create the hyperlink
+	$('p.show-more').each(function () {
+		var $showMorePara = $(this);
+		var $showMoreContent = $showMorePara.nextUntil('h2, h3, h4'); // All blocks until the next header
+		var $link = $('<a class="show-more-link">' + $showMorePara.text() + '</a>'); // Create the hyperlink
 
-    // Hide the blocks
-    $showMoreContent.addClass('hidden');
+		// Hide the blocks
+		$showMoreContent.addClass('hidden');
 
-    // Replace the paragraph with the hyperlink
-    $showMorePara.replaceWith($link);
+		// Replace the paragraph with the hyperlink
+		$showMorePara.replaceWith($link);
 
-    // Add a click event to the hyperlink
-    $link.on('click', function (e) {
-        e.preventDefault();
-        $link.hide(); // Hide the link
-        $showMoreContent.removeClass('hidden'); // Show all hidden blocks
-    });
-  });
+		// Add a click event to the hyperlink
+		$link.on('click', function (e) {
+			e.preventDefault();
+			$link.hide(); // Hide the link
+			$showMoreContent.removeClass('hidden'); // Show all hidden blocks
+		});
+	});
 });
 
 // Home page.
 $(document).ready(function () {
-  // Handle the FAQ section
-  $('.faq-section .question').click(function () {
-    // Inactivate other questions
-    $('.faq-section .question').not(this).removeClass('active');
-    $('.faq-section .arrow').not($(this).parent().find('.arrow')).removeClass('arrow-animate');
-    $('.faq-section .answer').not($(this).parent().find('.answer')).slideUp(280);
+	// Handle the FAQ section
+	$('.faq-section .question').click(function () {
+		// Inactivate other questions
+		$('.faq-section .question').not(this).removeClass('active');
+		$('.faq-section .arrow').not($(this).parent().find('.arrow')).removeClass('arrow-animate');
+		$('.faq-section .answer').not($(this).parent().find('.answer')).slideUp(280);
 
-    // Toggle the clicked question
-    $(this).toggleClass('active');
-    $(this).parent().find('.arrow').toggleClass('arrow-animate');
-    $(this).parent().find('.answer').slideToggle(280);
-  });
+		// Toggle the clicked question
+		$(this).toggleClass('active');
+		$(this).parent().find('.arrow').toggleClass('arrow-animate');
+		$(this).parent().find('.answer').slideToggle(280);
+	});
 
-  // Handles the Lottie animation
-  if ($('#graphLottie').length) {
-    var graphLottieHasStarted = false;
-  
-    $(window).scroll(function () {
-        var top = $('#approach').offset().top;
-  
-        if ($(window).scrollTop() > (top - 600) && $(window).scrollTop() < (top + 500) && graphLottieHasStarted == false) {
-            lottie.loadAnimation({
-                container: document.getElementById('graphLottie'),
-                renderer: 'svg',
-                loop: false,
-                autoplay: true,
-                path: '/assets/animations/graph/data.json'
-            });
-            graphLottieHasStarted = true;
-        }
-    }).scroll();
-  }
+	// Handles the Lottie animation
+	if ($('#graphLottie').length) {
+		var graphLottieHasStarted = false;
+
+		$(window).scroll(function () {
+			var top = $('#approach').offset().top;
+
+			if ($(window).scrollTop() > (top - 600) && $(window).scrollTop() < (top + 500) && graphLottieHasStarted == false) {
+				lottie.loadAnimation({
+					container: document.getElementById('graphLottie'),
+					renderer: 'svg',
+					loop: false,
+					autoplay: true,
+					path: '/assets/animations/graph/data.json'
+				});
+				graphLottieHasStarted = true;
+			}
+		}).scroll();
+	}
 });
 
 
 $(document).ready(function () {
-  // This is how to add a banner, if enabled.
-  /*
-  if (!localStorage.getItem('bannerDismissed')) {
-    const banner = $(`
-      <div id="preview-banner" style="background: #ffcc00; color: #000; padding: 10px; text-align: center; width: 100%; position: fixed; bottom: 0; z-index: 1000;">
-        <span>This website is a preview. It applies to Metalama 2025.1, the first open-source version of Metalama.</span>
-        <button id="dismiss-banner" style="margin-left: 10px; background: #000; color: #fff; border: none; padding: 5px 10px; cursor: pointer;">Dismiss</button>
-      </div>
-    `);
-    $('body').prepend(banner);
-    $('body').css('padding-bottom', '50px'); // Adjust for banner height
-
-    $('#dismiss-banner').on('click', function () {
-      $('#preview-banner').remove();
-      $('body').css('padding-bottom', '0');
-      localStorage.setItem('bannerDismissed', 'true');
-    });
-  }
-	*/
-
+	// This is how to add a banner, if enabled.
+	/*
+	if (!localStorage.getItem('bannerDismissed')) {
+	  const banner = $(`
+		<div id="preview-banner" style="background: #ffcc00; color: #000; padding: 10px; text-align: center; width: 100%; position: fixed; bottom: 0; z-index: 1000;">
+		  <span>This website is a preview. It applies to Metalama 2025.1, the first open-source version of Metalama.</span>
+		  <button id="dismiss-banner" style="margin-left: 10px; background: #000; color: #fff; border: none; padding: 5px 10px; cursor: pointer;">Dismiss</button>
+		</div>
+	  `);
+	  $('body').prepend(banner);
+	  $('body').css('padding-bottom', '50px'); // Adjust for banner height
   
+	  $('#dismiss-banner').on('click', function () {
+		$('#preview-banner').remove();
+		$('body').css('padding-bottom', '0');
+		localStorage.setItem('bannerDismissed', 'true');
+	  });
+	}
+	  */
+
+
 });
 
 
@@ -369,37 +369,86 @@ document.querySelectorAll('.scroll-wrapper').forEach(wrapper => {
 	const content = wrapper.querySelector('.scroll-content');
 	const btnUp = wrapper.querySelector('.scroll-btn.up');
 	const btnDown = wrapper.querySelector('.scroll-btn.down');
-  
+
 	const updateButtonOpacity = () => {
-	  const scrollTop = content.scrollTop;
-	  const scrollHeight = content.scrollHeight;
-	  const clientHeight = content.clientHeight;
-  
-	  if (scrollTop <= 0) {
-		btnUp.classList.add('disabled');
-	  } else {
-		btnUp.classList.remove('disabled');
-	  }
-  
-	  if (scrollTop + clientHeight >= scrollHeight - 20) {
-		btnDown.classList.add('disabled');
-	  } else {
-		btnDown.classList.remove('disabled');
-	  }
+		const scrollTop = content.scrollTop;
+		const scrollHeight = content.scrollHeight;
+		const clientHeight = content.clientHeight;
+
+		if (scrollTop <= 0) {
+			btnUp.classList.add('disabled');
+		} else {
+			btnUp.classList.remove('disabled');
+		}
+
+		if (scrollTop + clientHeight >= scrollHeight - 20) {
+			btnDown.classList.add('disabled');
+		} else {
+			btnDown.classList.remove('disabled');
+		}
 	};
-  
+
 	// Scroll event listener just for this content div
 	content.addEventListener('scroll', updateButtonOpacity);
-  
+
 	// Click listeners only affect their local content
 	btnUp.addEventListener('click', () => {
-	  content.scrollBy({ top: -100, behavior: 'smooth' });
+		content.scrollBy({ top: -100, behavior: 'smooth' });
 	});
-  
+
 	btnDown.addEventListener('click', () => {
-	  content.scrollBy({ top: 100, behavior: 'smooth' });
+		content.scrollBy({ top: 100, behavior: 'smooth' });
 	});
-  
+
 	// Initialize opacity once on load
 	updateButtonOpacity();
-  });
+});
+
+
+function InitializeMatomo() {
+	var _paq = window._paq = window._paq || [];
+	_paq.push(["setExcludedQueryParams", ["clientid", "ck_subscriber_id", "qid", "license", "interests", "version", "vgo_ee", "conf"]]);
+	_paq.push(['enableLinkTracking']);
+	_paq.push(["setDoNotTrack", "true"]);
+	_paq.push(["setCookieDomain", "*.metalama.net"]);
+	_paq.push(['trackPageView']);
+	(function () {
+		var u = "https://postsharp.matomo.cloud/";
+		_paq.push(['setTrackerUrl', u + 'matomo.php']);
+		_paq.push(['setSiteId', '10']);
+		var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+		g.async = true; g.src = 'https://cdn.matomo.cloud/postsharp.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g, s);
+	})();
+}
+
+function waitForClearanceCookie(timeoutMs = 5000, checkInterval = 100) {
+	return new Promise((resolve, reject) => {
+		const start = Date.now();
+
+		function check() {
+			if (document.cookie.includes('cf_clearance=')) {
+				resolve(true);
+			} else if (Date.now() - start > timeoutMs) {
+				resolve(false); // not found in time
+			} else {
+				setTimeout(check, checkInterval);
+			}
+		}
+
+		if (document.readyState === 'complete') {
+			check();
+		} else {
+			window.addEventListener('load', check);
+		}
+	});
+}
+
+// Example usage
+waitForClearanceCookie(10000).then(passed => {
+	if (passed) {
+		console.log('Challenge passed: cf_clearance set');
+		InitializeMatomo();
+	} else {
+		console.warn('cf_clearance cookie not set within timeout');
+	}
+});
