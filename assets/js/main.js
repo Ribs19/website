@@ -405,7 +405,10 @@ document.querySelectorAll('.scroll-wrapper').forEach(wrapper => {
 });
 
 
+var matomoInitialized = false;
 function InitializeMatomo() {
+	if ( matomoInitialized ) return;
+	matomoInitialized = true;
 	console.log('Initializing Matomo.');
 	var _paq = window._paq = window._paq || [];
 	_paq.push(["setExcludedQueryParams", ["clientid", "ck_subscriber_id", "qid", "license", "interests", "version", "vgo_ee", "conf"]]);
