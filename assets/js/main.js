@@ -404,13 +404,13 @@ document.querySelectorAll('.scroll-wrapper').forEach(wrapper => {
 	updateButtonOpacity();
 });
 
+var _paq = window._paq = window._paq || [];
 
 var matomoInitialized = false;
 function InitializeMatomo() {
 	if ( matomoInitialized ) return;
 	matomoInitialized = true;
 	console.log('Initializing Matomo.');
-	var _paq = window._paq = window._paq || [];
 	_paq.push(["setExcludedQueryParams", ["clientid", "ck_subscriber_id", "qid", "license", "interests", "version", "vgo_ee", "conf"]]);
 	_paq.push(['enableLinkTracking']);
 	_paq.push(["setDoNotTrack", "true"]);
@@ -426,7 +426,12 @@ function InitializeMatomo() {
 }
 
 // Check for _human verification in localStorage and dynamically load Turnstile if needed
+var humanVerificationChecked = false;
 function checkHumanVerification() {
+  // Prevent multiple checks
+  if (humanVerificationChecked) return;
+  humanVerificationChecked = true;
+  
   // Check if human verification exists in localStorage
   const humanVerified = localStorage.getItem('_human_verified');
   
