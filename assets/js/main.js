@@ -404,6 +404,7 @@ document.querySelectorAll('.scroll-wrapper').forEach(wrapper => {
 	updateButtonOpacity();
 });
 
+// Matomo tracking
 var _paq = window._paq = window._paq || [];
 
 var matomoInitialized = false;
