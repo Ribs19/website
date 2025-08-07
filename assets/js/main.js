@@ -415,7 +415,7 @@ function InitializeMatomo() {
 	_paq.push(['enableLinkTracking']);
 	_paq.push(["setDoNotTrack", "true"]);
 	_paq.push(["setCookieDomain", "*.metalama.net"]);
-	_paq.push(['setCustomDimension', 1, '2025-08-07-01']);
+	_paq.push(['setCustomDimension', 2, '2025-08-07-01']);
 	_paq.push(['trackPageView']);
 	(function () {
 		var u = "https://postsharp.matomo.cloud/";
