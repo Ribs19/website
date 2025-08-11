@@ -10,13 +10,13 @@ keywords: "roadmap, milestones, Metalama, open source, project planning"
 
 ☑︎ Enhance modularity to support proprietary extensions.  
 
-☐ Migrate the issue database and project management to GitHub.  
+☑︎ Migrate the issue database and project management to GitHub.  
 
-## 2025.2 (August 2025)
+## 2025.2 (~~August~~October 2025)
 
-☐ Introduce support for overriding events.  
+☐ Introduce support for overriding event invocations.  
 
-☐ Add functionality for intercepting the `await` keyword (time permitting).  
+~~☐ Add functionality for intercepting the await keyword (time permitting).~~  
 
 ## 2026.0 (December 2025)
 
@@ -24,7 +24,7 @@ keywords: "roadmap, milestones, Metalama, open source, project planning"
 
 ## 2026.1
 
-☐ Complete functionality for intercepting the `await` keyword (if not finalized in 2025.2).  
+☐ Complete functionality for intercepting the `await` keyword.  
 
 ☐ Address bug fixes and implement community-requested features.  
 
